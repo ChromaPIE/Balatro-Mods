@@ -66,6 +66,7 @@ local space_jokers = {
     ["Sentai Joker"] = "j_sentai", -- Jank Jonklers
     ["Ternary System"] = "j_ternary_system", -- Jank Jonklers
     ["Big Bang"] = "j_big_bang", -- Fusion Joker
+    ["Moon Rabbit"] = "j_moon", -- PampaJokers
 }
 
 --- Functions ---
@@ -214,11 +215,11 @@ function SMODS.INIT.sdm_0s_stuff()
     if get_random_sdm_modded_jokers(2, true) then
 
         local b_sdm_sdm_0_s_deck_loc_def = {
-            name ="SDM_0's Deck",
+            name ="SDM_0的牌组",
             text ={
-                "Start run with",
-                "{C:attention}2{} random {C:eternal}Eternal non-{C:legendary}legendary",
-                "{C:attention}SDM_0's Stuff{} jokers",
+                "开局时即拥有随机{C:attention}2{}张",
+                "来自{C:attention}SDM_0's Stuff{}模组的{C:eternal}永恒{}小丑牌",
+                "（不包括{C:legendary}传奇{}小丑牌）",
         },
         }
 
@@ -553,11 +554,12 @@ function SMODS.INIT.sdm_0s_stuff()
             'Trance The Devil', 'sdm_trance_the_devil',
             {extra = 0.25}, {x=0, y=0}, 
             {
-                name = "Trance The Devil",
+                name = "恶魔入迷",
                 text = {
-                    "{X:mult,C:white}X#1#{} Mult per {C:spectral}Trance{} and",
-                    "{C:tarot}The Devil{} card used this run",
-                    "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive})"
+                    "本赛局内每使用",
+                    "一张{C:tarot}恶魔{}或{C:spectral}入迷",
+                    "本牌获得{X:mult,C:white}X#1#{}倍率",
+                    "{C:inactive}（当前为{X:mult,C:white}X#2#{C:inactive}）"
                 }
             }, 2, 6, true, true, true, true
         )
@@ -596,11 +598,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Burger", "sdm_burger",
             {extra = {Xmult=1.25, mult=10, chips=30, remaining=4}}, {x=0, y=0},
             {
-                name = "Burger",
+                name = "大汉堡",
                 text = {
-                    "{C:chips}+#3#{} Chips, {C:mult}+#2#{} Mult",
-                    "and {X:mult,C:white}X#1#{} Mult",
-                    "for the next {C:attention}#4#{} rounds",
+                    "在接下来的{C:attention}#4#{}回合内",
+                    "{C:chips}+#3#{}筹码，{C:mult}+#2#{}倍率，{X:mult,C:white}X#1#{}倍率"
                 }
             }, 3, 8, true, true, true, false
         )
@@ -661,12 +662,13 @@ function SMODS.INIT.sdm_0s_stuff()
             "Bounciest Ball", "sdm_bounciest_ball",
             {extra = {chips = 0, chip_mod = 10, hand = "High Card"}}, {x=0, y=0},
             {
-                name = "Bounciest Ball",
+                name = "弹出大气层",
                 text = {
-                    "This Joker gains {C:chips}+#2#{} Chips every time",
-                    "a {C:attention}#3#{} is scored, reset and",
-                    "change on {C:attention}different hand{}",
-                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+                    "打出{C:attention}#3#{}并计分时",
+                    "本牌获得{C:chips}+#2#{}筹码",
+                    "{C:attention}牌型不符{}时重置",
+                    "并改变需求牌型",
+                    "{C:inactive}（当前为{C:chips}+#1#{C:inactive}筹码）"
             }}, 1, 5, true, true, true, true
         )
 
@@ -710,11 +712,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Lucky Joker", "sdm_lucky_joker",
             {extra = {repitition = 2}},  {x=0, y=0},
             {
-                name = "Lucky Joker",
+                name = "幸运小丑",
                 text = {
-                    "Retrigger each played",
-                    "{C:attention}Lucky{} card {C:attention}7{}",
-                    "{C:attention}#1#{} additional times"
+                    "使打出的每张",
+                    "点数为{C:attention}7{}的{C:attention}幸运牌",
+                    "重新触发{C:attention}#1#{}次"
                 },
             }, 2, 7, true, true, true, true
         )
@@ -746,12 +748,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Iconic Icon", "sdm_iconic_icon",
             {extra = {mult = 0, mult_mod = 4}},  {x=0, y=0},
             {
-                name = "Iconic Icon",
+                name = "门面头牌",
                 text = {
-                    "{C:mult}+#2#{} Mult per{C:attention} modified Aces",
-                    "(enhancement, seal, edition)",
-                    "in your {C:attention}full deck",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                    "{C:attention}完整牌组{}内每有一张",
+                    "带有{C:attention}增强{}、{C:attention}蜡封{}或{C:attention}版本{}的{C:attention}A",
+                    "{C:mult}+#2#{}倍率",
+                    "{C:inactive}（当前为{C:mult}+#1#{C:inactive}倍率）"
                 }
             }, 1, 6, true, true, true, true
         )
@@ -781,12 +783,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Mult'N'Chips", "sdm_mult_n_chips",
             {extra = {mult = 4, chips = 30}},  {x=0, y=0},
             {
-                name = "Mult'N'Chips",
+                name = "红蓝交错",
                 text = {
-                    "Scored {C:attention}Bonus{} cards",
-                    "gives {C:mult}+#1#{} Mult,",
-                    "scored {C:attention}Mult{} cards",
-                    "gives {C:chips}+#2#{} Chips",
+                    "{C:attention}奖励牌{}在计分时给予{C:mult}+#1#{}倍率",
+                    "{C:attention}倍率牌{}在计分时给予{C:chips}+#2#{}筹码"
                 }
             }, 1, 5, true, true, true, true
         )
@@ -822,10 +822,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Moon Base", "sdm_moon_base",
             {extra = 50},  {x=0, y=0},
             {
-                name = "Moon Base",
+                name = "月球基地",
                 text = {
-                    "{C:attention}Space{} Jokers each",
-                    "give{C:chips} +#1# {}Chips",
+                    "每张{C:attention}太空{}主题的小丑牌",
+                    "给予{C:chips}+#1#{}筹码",
                 }
             }, 2, 7, true, true, true, true
         )
@@ -862,11 +862,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Shareholder Joker", "sdm_shareholder_joker",
             {extra = {min = 1, max = 8}},  {x=0, y=0},
             {
-                name = "Shareholder Joker",
+                name = "股东小丑",
                 text = {
-                    "Earn between",
-                    "{C:money}$#1#{} and {C:money}$#2#{}",
-                    "at end of round",
+                    "回合结束时",
+                    "获得{C:money}$#1#{} - {C:money}$#2#"
                 }
             }, 1, 5, true, true, false, true
         )
@@ -926,11 +925,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Tip Jar", "sdm_tip_jar",
             {},  {x=0, y=0},
             {
-                name = "Tip Jar",
+                name = "小费罐",
                 text = {
-                    "Earn your money's",
-                    "{C:attention}highest digit",
-                    "at end of round",
+                    "回合结束时获得",
+                    "与拥有资金数字中",
+                    "{C:attention}最大的一位{}等值的资金",
+                    "{C:inactive}例如：拥有132$，获得3$"
                 }
             }, 2, 6, true, true, false, true
         )
@@ -950,11 +950,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Wandering Star", "sdm_wandering_star",
             {extra = {mult = 0, mult_mod = 3}},  {x=0, y=0},
             {
-                name = "Wandering Star",
+                name = "游星",
                 text = {
-                    "This Joker gains {C:red}+#2#{} Mult",
-                    "per {C:planet}Planet{} card sold",
-                    "{C:inactive}(Currently {C:red}+#1#{C:inactive} Mult)"
+                    "每售出一张{C:planet}星球牌",
+                    "本牌获得{C:red}+#2#{}倍率",
+                    "{C:inactive}（当前为{C:red}+#1#{C:inactive}倍率）"
                 }
             }, 1, 6, true, true, true, true
         )
@@ -991,14 +991,15 @@ function SMODS.INIT.sdm_0s_stuff()
             "Ouija Board", "sdm_ouija_board",
             {extra = {remaining = 0, rounds = 3, sold_rare = false, scored_secret = false, used_spectral = false}},  {x=0, y=0},
             {
-                name = "Ouija Board",
+                name = "显灵板",
                 text = {
-                    "After selling a {C:red}Rare {C:attention}Joker{}",
-                    "scoring a {C:attention}secret poker hand{}",
-                    "and using a {C:spectral}Spectral{} card,",
-                    "sell this card to create a {C:spectral}Soul{} card",
-                    "{s:0.8,C:inactive}(Must have room)",
-                    "{C:inactive}(Remaining {C:attention}#1#{C:inactive}/#2#)"
+                    "达成下述所有条件后",
+                    "售出本牌即可生成一张{C:spectral}灵魂{}：",
+                    "{s:0.8,C:inactive}（必须有空间）",
+                    "- 售出一张{C:red}稀有{C:attention}小丑牌",
+                    "- 打出{C:attention}秘密牌型{}并计分",
+                    "- 使用一张{C:spectral}幻灵牌",
+                    "{C:inactive}（任务进度：{C:attention}#1#{C:inactive}/#2#）"
                 }
             }, 3, 8, true, true, false, false
         )
@@ -1136,11 +1137,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "La Révolution", "sdm_la_revolution",
             {hand = "High Card"},  {x=0, y=0},
             {
-                name = "La Révolution",
+                name = "大革命",
                 text = {
-                    "Upgrade {C:attention}winning poker hand{}",
-                    "by {C:attention}1{} if played hand",
-                    "contains no {C:attention}face{} cards",
+                    "若{C:attention}致胜牌{}不包含{C:attention}人头牌",
+                    "则将其牌型等级提升{C:attention}1"
                 }
             }, 3, 8, true, true, true, true
         )
@@ -1181,12 +1181,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Clown Bank", "sdm_clown_bank",
             {extra = {Xmult=1, Xmult_mod=0.25, dollars = 1, inflation = 1}},  {x=0, y=0},
             {
-                name = "Clown Bank",
+                name = "小丑钱罐",
                 text = {
-                    "When {C:attention}Blind{} is selected, this Joker",
-                    "gains {X:mult,C:white}X#2#{} Mult for {C:money}$#3#{} if possible,",
-                    "increases cost by {C:money}$#4#{}",
-                    "{C:inactive}(Currenty {X:mult,C:white}X#1#{C:inactive} Mult)"
+                    "选择{C:attention}盲注{}时，若资金足够",
+                    "则花费{C:money}$#3#{}使本牌获得{X:mult,C:white}X#2#{}倍率",
+                    "并使费用上涨{C:money}$#4#",
+                    "{C:inactive}（当前为{X:mult,C:white}X#1#{C:inactive}倍率）"
                 }
             }, 3, 8, true, true, true, true
         )
@@ -1280,11 +1280,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Warehouse", "sdm_warehouse",
             {extra = {h_size = 3, c_size = 0, dollars = -50}},  {x=0, y=0},
             {
-                name = "Warehouse",
+                name = "仓库",
                 text = {
-                    "{C:attention}+#1#{} hand size,",
-                    "{C:red}no consumable slots{},",
-                    "lose {C:money}$#2#{} if sold"
+                    "手牌上限{C:attention}+#1#",
+                    "{C:red}无消耗牌槽位",
+                    "售出时失去{C:money}$#2#"
                 }
             }, 2, 6, true, true, false, true
         )
@@ -1311,12 +1311,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Zombie Joker", "sdm_zombie_joker",
             {extra = 2},  {x=0, y=0},
             {
-                name = "Zombie Joker",
+                name = "丧尸小丑",
                 text = {
-                    "{C:green}#1# in #2#{} chance to create a",
-                    "{C:tarot}Death{} card when {C:attention}selling{}",
-                    "a card other than {C:tarot}Death{}",
-                    "{C:inactive}(Must have room)"
+                    "{C:attention}售出{}除{C:tarot}死神{}外的卡牌时",
+                    "有{C:green}#1#/#2#{}的几率生成一张{C:tarot}死神",
+                    "{C:inactive}（必须有空位）"
                 }
             }, 1, 4, true, true, true, true
         )
@@ -1358,10 +1357,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Mystery Joker", "sdm_mystery_joker",
             {},  {x=0, y=0},
             {
-                name = "Mystery Joker",
+                name = "██小丑",
                 text = {
-                    "Create a {C:red}Rare {C:attention}Joker Tag",
-                    "when {C:attention}Boss Blind{} is defeated",
+                    "击败{C:attention}Boss盲注{}时",
+                    "生成一个{C:red}稀有{C:attention}标签",
                 }
             }, 1, 6, true, true, true, true
         )
@@ -1397,11 +1396,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Infinite Staircase", "sdm_infinite_staircase",
             {extra = {Xmult = 2}},  {x=0, y=0},
             {
-                name = "Infinite Staircase",
+                name = "无尽楼梯间",
                 text = {
-                    "{X:red,C:white}X#1#{} Mult if scored hand",
-                    "contains a {C:attention}numerical Straight{}",
-                    "without an {C:attention}Ace{} card",
+                    "如果打出的牌中包含",
+                    "全部由{C:attention}数字牌{}组成",
+                    "且没有{C:attention}A{}的{C:attention}顺子",
+                    "{X:red,C:white}X#1#{}倍率"
                 }
             }, 2, 6, true, true, true, true
         )
@@ -1436,14 +1436,15 @@ function SMODS.INIT.sdm_0s_stuff()
         
         local j_sdm_ninja_joker = SMODS.Joker:new(
             "Ninja Joker", "sdm_ninja_joker",
-            {extra = {can_dupe = true, active = "Active", inactive = ""}},  {x=0, y=0},
+            {extra = {can_dupe = true, active = "现身", inactive = ""}},  {x=0, y=0},
             {
-                name = "Ninja Joker",
+                name = "忍者小丑",
                 text = {
-                    "Creates a {C:dark_edition}Negative{C:attention} Tag",
-                    "if a card is {C:attention}destroyed{}, reactivates",
-                    "when a {C:attention}playing card{} is added",
-                    "{C:inactive}(Currently {C:attention}#1#{C:inactive}#2#{C:inactive})"
+                    "现身状态下有卡牌被{C:attention}摧毁{}时",
+                    "生成一个{C:dark_edition}负片{C:attention}标签{}并遁形",
+                    "遁形状态下有{C:attention}扑克牌",
+                    "被加入牌组时重新现身",
+                    "{C:inactive}（当前状态：{C:attention}#1#{C:inactive}#2#{C:inactive}）"
                 }
             }, 2, 6, true, true, true, true
         )
@@ -1457,7 +1458,7 @@ function SMODS.INIT.sdm_0s_stuff()
         SMODS.Jokers.j_sdm_ninja_joker.calculate = function(card, context)
             if context.playing_card_added  and not card.getting_sliced and not context.blueprint then
                 if not card.ability.extra.can_dupe then
-                    card.ability.extra.active = "Active"
+                    card.ability.extra.active = "现身"
                     card.ability.extra.inactive = ""
                     card_eval_status_text(card, 'extra', nil, nil, nil, {
                         message = localize('k_active_ex'),
@@ -1470,7 +1471,7 @@ function SMODS.INIT.sdm_0s_stuff()
                 if #context.glass_shattered > 0 then
                     if not context.blueprint then
                         card.ability.extra.active = ""
-                        card.ability.extra.inactive = "Inactive"
+                        card.ability.extra.inactive = "遁形"
                         card.ability.extra.can_dupe = false
                     end
                     G.E_MANAGER:add_event(Event({
@@ -1487,7 +1488,7 @@ function SMODS.INIT.sdm_0s_stuff()
                 if #context.removed > 0 then
                     if not context.blueprint then
                         card.ability.extra.active = ""
-                        card.ability.extra.inactive = "Inactive"
+                        card.ability.extra.inactive = "遁形"
                         card.ability.extra.can_dupe = false
                     end
                     G.E_MANAGER:add_event(Event({
@@ -1512,12 +1513,14 @@ function SMODS.INIT.sdm_0s_stuff()
             "Reach The Stars", "sdm_reach_the_stars",
             {extra = {num_card1 = 1, num_card2 = 5, rts_scored = 0, remaining = 2, c1_scored = false, c2_scored = false}},  {x=0, y=0},
             {
-                name = "Reach The Stars",
+                name = "只手摘星",
                 text = {
-                    "Scoring {C:attention}#1#{} and {C:attention}#2#{} cards",
-                    "creates a random {C:planet}Planet{} card,",
-                    "changes at end of round",
-                    "{C:inactive}(Must have room)",
+                    "回合内每有两次出牌中",
+                    "各有{C:attention}#1#{}张和{C:attention}#2#{}张牌计分时",
+                    "随机生成一张{C:planet}星球牌",
+                    "{C:inactive}（必须有空位）",
+                    "回合结束时改变张数要求",
+                    
                 }
             }, 1, 5, true, true, true, true
         )
@@ -1619,11 +1622,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Sword Of Damocles", "sdm_sword_of_damocles",
             {},  {x=0, y=0},
             {
-                name = "Sword Of Damocles",
+                name = "达摩克利斯之剑",
                 text = {
-                    "{C:attention}Doubles{} or {C:red}destroys{}",
-                    "added {C:attention}Joker{} cards",
-                    "{C:inactive}(Must have room)"
+                    "{C:attention}复制{}或{C:red}摧毁",
+                    "加入槽位的{C:attention}小丑牌",
+                    "{C:inactive}（必须有空位）"
                 }
             }, 2, 5, true, true, false, true
         )
@@ -1752,13 +1755,13 @@ function SMODS.INIT.sdm_0s_stuff()
             "Contract", "sdm_contract",
             {extra = {Xmult = 3, dollars = 0, dollars_mod = 15, registered = false, breached = false}},  {x=0, y=0},
             {
-                name = "Contract",
+                name = "合同",
                 text = {
-                    "{X:red,C:white}X#1#{} Mult",
-                    "when {C:attention}Blind{} is selected,",
-                    "register current money,",
-                    "destroyed if out of range",
-                    "{C:inactive}({C:money}$#3#{C:inactive} - {C:money}$#4#{C:inactive})"
+                    "{X:red,C:white}X#1#{}倍率",
+                    "选择{C:attention}盲注{}时",
+                    "登记你当前的资金数",
+                    "超出范围将摧毁本牌",
+                    "{C:inactive}（{C:money}$#3#{C:inactive} - {C:money}$#4#{C:inactive}）"
                 }
             }, 2, 6, true, true, true, false
         )
@@ -1797,11 +1800,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Cupidon", "sdm_cupidon",
             {extra = {mult = 15}},  {x=0, y=0},
             {
-                name = "Cupidon",
+                name = "丘比特",
                 text = {
-                    "{C:red}+#1#{} Mult if scored hand",
-                    "contains a {C:attention}King{} and {C:attention}Queen{}",
-                    "card of the same {C:attention}suit",
+                    "如果打出的牌包含计分",
+                    "且{C:attention}花色{}相同的的{C:attention}K{}和{C:attention}Q",
+                    "{C:red}+#1#{}倍率",
                 }
             }, 1, 5, true, true, true, true
         )
@@ -1864,11 +1867,11 @@ function SMODS.INIT.sdm_0s_stuff()
             "Pizza", "sdm_pizza",
             {extra = {hands = 4, hand_mod = 1}},  {x=0, y=0},
             {
-                name = "Pizza",
+                name = "披萨",
                 text = {
-                    "When {C:attention}Blind{} is selected,",
-                    "{C:blue}+#1#{} #3#, reduces by",
-                    "{C:red}#2#{} every round"
+                    "选择{C:attention}盲注{}时",
+                    "{C:blue}+#1#{}出牌次数",
+                    "每回合减少{C:red}#2#"
                 }
             }, 1, 5, true, true, true, false
         )
@@ -1931,11 +1934,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Treasure Chest", "sdm_treasure_chest",
             {extra = 2},  {x=0, y=0},
             {
-                name = "Treasure Chest",
+                name = "宝藏箱",
                 text = {
-                    "Gains {C:money}$#1#{} of",
-                    "{C:attention}sell value{} per",
-                    "{C:attention}consumable{} sold"
+                    "每售出一张{C:attention}消耗牌",
+                    "本牌的{C:attention}售价{}提升{C:money}$#1#"
                 }
             }, 1, 4, true, true, false, false
         )
@@ -1972,11 +1974,10 @@ function SMODS.INIT.sdm_0s_stuff()
             "Bullet Train", "sdm_bullet_train",
             {extra = 150},  {x=0, y=0},
             {
-                name = "Bullet Train",
+                name = "高速列车",
                 text = {
-                    "{C:chips}+#1#{} Chips on your",
-                    "{C:attention}first hand{} if no discards",
-                    "were used this round",
+                    "本回合{C:attention}第一次出牌{}时",
+                    "若尚未弃牌，{C:chips}+#1#{}筹码"
                 }
             }, 1, 6, true, true, true, true
         )
@@ -2040,12 +2041,12 @@ function SMODS.INIT.sdm_0s_stuff()
             "Archibald", "sdm_archibald",
             {extra = {remaining = 5}},  {x=0, y=0},
             {
-                name = "Archibald",
+                name = "阿奇博尔德",
                 text = {
-                    "On {C:attention}Joker{} card added,",
-                    "creates a {C:dark_edition}Negative{} copy",
-                    "{C:inactive}(Copy start selling for {C:money}$0{C:inactive})",
-                    "{C:inactive}(Remaining {C:attention}#1#{C:inactive})"
+                    "购买{C:attention}小丑牌{}时",
+                    "额外生成一张带有{C:dark_edition}负片{}的复制",
+                    "{C:inactive}（复制牌的起始售价为{C:money}$0{C:inactive}）",
+                    "{C:inactive}（可用次数：{C:attention}#1#{C:inactive}）"
                 }
             }, 4, 20, true, true, true, false, nil, nil, {x = 0, y = 1}
         )
