@@ -1592,9 +1592,9 @@ if sdm_config.sdm_jokers then
         loc_txt = {
             name = "SDM_0",
             text = {
-                "This Joker gains {C:dark_edition}+#1#{} Joker",
-                "Slots per removed {C:attention}2{}",
-                "{C:inactive}(Currently {C:dark_edition}+#2# {C:inactive}Joker #3#)"
+                "每移除一张{C:attention}2",
+                "{C:dark_edition}+1{}小丑牌槽位",
+                "{C:inactive}（当前为{C:dark_edition}+#1#{C:inactive}小丑牌槽位）"
             }
         },
         loc_vars = function(self, info_queue, card)
