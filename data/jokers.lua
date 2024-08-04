@@ -189,7 +189,7 @@ if sdm_config.sdm_jokers then
         blueprint_compat = true,
         pos = {x = 3, y = 0},
         cost = 5,
-        config = {extra = {repitition = 2}},
+        config = {extra = {repetition = 2}},
         loc_txt = {
             name = "Lucky Joker",
             text = {
@@ -199,14 +199,14 @@ if sdm_config.sdm_jokers then
             },
         },
         loc_vars = function(self, info_queue, card)
-            return {vars = {card.ability.extra.repitition}}
+            return {vars = {card.ability.extra.repetition}}
         end,
         calculate = function(self, card, context)
             if context.repetition and not context.individual and context.cardarea == G.play then
                 if context.other_card:get_id() == 7 then
                     return {
                         message = localize('k_again_ex'),
-                        repetitions = card.ability.extra.repitition,
+                        repetitions = card.ability.extra.repetition,
                         card = card
                     }
                 end
@@ -340,8 +340,10 @@ if sdm_config.sdm_jokers then
                     func = function() 
                         local space = {}
                         for k, _ in pairs(SDM_0s_Stuff_Mod.space_jokers) do
-                            if k ~= "j_sdm_moon_base" then
-                                table.insert(space, k)
+                            if k ~= "j_sdm_moon_base" and G.P_CENTERS[k] ~= nil then
+                                if G.P_CENTERS[k].rarity ~= "evo" then -- Prevent space evos from Joker Evolution
+                                    table.insert(space, k)
+                                end
                             end
                         end
                         local chosen_space = space[pseudorandom(pseudoseed('mnb'), 1, #space)]
